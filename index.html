@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organize Your Time</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="pt-4">
+    <p class="header text-center">Organize Your time</p>
+  </div>
+  <div class="table-responsive mt-5 container">
+    <table class="table">
+      <thead>
+        <tr class="text-center">
+          <th class="w-15 main-color">Status</th>
+          <th class="w-55 main-color">What I must do</th>
+          <th class="w-15 main-color">Date or time</th>
+          <th class="w-15 main-color" >Action</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+      </tbody>
+    </table>
+  </div>
+  <div class="addSection container">
+    <h3 class="addSectionH3">Add What you want to do</h3>
+    <div class="mt-4">
+      <form>
+        <div class="mb-3">
+          <label class="form-label text_red fw-bold main-color">What I must do</label>
+          <input type="text" id="WIMD" class="form-control border_orange" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label text_red fw-bold main-color">Date or time I will finish at</label>
+          <input type="text" id="time" class="form-control border_orange">
+        </div>
+        <button type="button" class="btn add_btn px-4 py-2 main-color main-bg" id="addBtn">Add</button>
+    </form>
+    </div>
+  </div>
+  <div>
+    <div class="theme_part ">
+      <div class="theme_btn">
+        <button type="button" id="theme_btn" class="btn text-white">Themes</button>
+      </div>
+      <div class="themes_container">
+      <h2>Colors</h2>
+        <ul class="mt-4 px-0 color_ul">
+          <li class="theme active" id="theme1" data-color="rgb(0 135 255)"></li>
+          <li class="theme" id="theme2" data-color="#18b118"></li>
+          <li class="theme" id="theme3" data-color="#000"></li>
+          <li class="theme" id="theme4" data-color="#fff"></li>
+        </ul>
+        <h2 class="mt-5">Background Colors</h2>
+          <ul class="mt-4 px-0 bg_ul">
+            <li class="theme active" id="theme5" data-color="#7c7c7c"> </li>
+            <li class="theme" id="theme6" data-color="#000"> </li>
+            <li class="theme" id="theme7" data-color="#fff"></li>
+          </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/all.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
