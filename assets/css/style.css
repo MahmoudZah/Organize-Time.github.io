@@ -15,7 +15,7 @@
   color: var(--background-main);
 }
 body{
-  background-color: var(--background-main);
+  background: var(--background-main);
 }
 
 .header{
@@ -79,7 +79,7 @@ body{
   border: 0;
 }
 .theme_part{
-  position: absolute;
+  position: fixed;
   left: 0px;
   top: 20.5%;
   border: 2px solid var(--color-main);
@@ -129,9 +129,6 @@ body{
 .theme.active{
   border: 2px black solid;
 }
-#theme3.active , #theme6.active{
-  border: 2px rgb(255, 0, 0) solid;
-}
 
 .themes_container ul{
   display: flex;
@@ -141,23 +138,23 @@ body{
   list-style: none;
 }
 #theme1{
-  background-color: rgb(0 135 255);
+  background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 84%);
 }
 #theme2{
-  background-color: #18b118;
+  background:linear-gradient(45deg, rgba(255,255,255,1)  0%, rgba(0,0,0,1) 84%);
 }
 #theme3{
-  background-color: #000;
+  background: linear-gradient(45deg, rgba(255,0,249,1) 0%, rgba(0,14,255,1) 100%);
 }
-#theme4{
-  background-color: #fff;
-}
-#theme5{
-  background-color: #747474;
-}
-#theme6{
-  background-color: #000;
-}
-#theme7{
-  background-color: #fff;
+
+@media (max-width:680px) {
+  #theme_btn{
+    font-size: 17px;
+  }
+  .theme_btn{
+    position: absolute;
+    right: -64.5px;
+    top: 19px;
+    transform: rotate(90deg);
+  }
 }
