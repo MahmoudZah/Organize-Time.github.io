@@ -80,13 +80,22 @@ let mainColor = localStorage.getItem("mainColor");
 
 console.log(mainColor)
 if(mainColor != null){
+  
   document.documentElement.style.setProperty("--color-main", mainColor)
+  
+  document.querySelectorAll(".themes_container ul li").forEach(element =>{
+    element.classList.remove("active")
+    
+    if(element.dataset.color == mainColor){
+      element.classList.add("active")
+    }
+  })
+  
 }
 
 let mainbg = localStorage.getItem("mainbg");
 
-console.log(mainColor)
-if(mainColor != null){
+if (mainbg != null){
   document.documentElement.style.setProperty("--background-main", mainbg)
 }
 
@@ -95,25 +104,17 @@ if(mainColor != null){
 color_lis.forEach(li => {
 
   li.addEventListener("click", (e) =>{
-    console.log(e.target.dataset.color)
     document.documentElement.style.setProperty("--color-main", e.target.dataset.color)
     localStorage.setItem("mainColor" , e.target.dataset.color)
+
+    document.documentElement.style.setProperty("--background-main", e.target.dataset.bg)
+    localStorage.setItem("mainbg" , e.target.dataset.bg)
+
     e.target.parentElement.querySelectorAll(".active").forEach(element =>{
       element.classList.remove("active")
     })
     e.target.classList.add("active")
-  })
-});
-bg_lis.forEach(li => {
+    
 
-  li.addEventListener("click", (e) =>{
-    console.log(e.target.dataset.color)
-    document.documentElement.style.setProperty("--background-main", e.target.dataset.color)
-    localStorage.setItem("mainbg" , e.target.dataset.color)
-    e.target.parentElement.querySelectorAll(".active").forEach(element =>{
-      element.classList.remove("active")
-    })
-    e.target.classList.add("active")
   })
-
 });
