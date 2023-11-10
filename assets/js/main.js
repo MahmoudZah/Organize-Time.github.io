@@ -22,9 +22,14 @@ addBtn.onclick=() =>{
   }else{
     last_id = 0;
   }
-  var doList_data = {id: last_id+1, WIMD:WIMD.value, time:time.value, statuss:false}
-  data.push(doList_data)
-  localStorage.setItem('doList',JSON.stringify(data))
+  var doList_data = {
+    id: last_id+1,
+    WIMD:WIMD.value,
+    time:time.value,
+    done:false
+  };
+  data.push(doList_data);
+  localStorage.setItem('doList',JSON.stringify(data));
   WIMD.value = "";
   time.value =  "";
   viewDoList()
@@ -33,15 +38,16 @@ function viewDoList(){
   JSON.parse(localStorage.getItem('doList'))
   tbody.innerHTML='';
   for(var i = 0; i<data.length; i++){
+    let IsDone = data[i].done == "true" ? "checked" : "";
     tbody.innerHTML+=`
     <tr class="tbody_tr ">
           <td class="d-flex justify-content-center border-0 p-0">
             <div class="form-check">
-            <input class="form-check-input " type="checkbox" value="" id="checkBox_${data[i].id}" onchange="status(${data[i].id})">
+            <input class="form-check-input check_input" type="checkbox" value="" id="${data[i].id}" onchange="done(this)" ${IsDone}>
           </div>
           </td>
           <td class="text-center">
-            <p class="mb-0 mt-2 main-color">${data[i].WIMD}</p>
+            <p class="mb-0 mt-2 main-color task_text">${data[i].WIMD}</p>
           </td>
           <td class="text-center">
             <p class="mb-0 mt-2 main-color">
@@ -65,13 +71,22 @@ function deleteDoList(id){
   viewDoList();
 }
 
-themeBtn.onclick=()=>{
-  themePart.classList.toggle("show")
+function done(checkbox){
+  if(checkbox.checked){
+    old_doList_data[checkbox.id-1].done = "true"
+  }else{
+    old_doList_data[checkbox.id-1].done = "false"
+  }
+  localStorage.setItem('doList',JSON.stringify(data));
 }
+
 viewDoList()
 
 
 // theme part
+themeBtn.onclick=()=>{
+  themePart.classList.toggle("show")
+}
 
 let color_lis = document.querySelectorAll(".color_ul li");
 let bg_lis = document.querySelectorAll(".bg_ul li");
